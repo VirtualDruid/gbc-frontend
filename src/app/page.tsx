@@ -483,7 +483,7 @@ const ItemWrapper = ({
           segmentIdRef.current = result.segment_id;
         }}
         loading="lazy"
-        src={`${CDN}/thumb/thumb/${result.episode}__${result.frame_start}.jpg`} />
+        src={`${CDN}/thumb/gbc/${result.episode}__${result.frame_start}.jpg`} />
     </Tooltip>
 
   </div>
