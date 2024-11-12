@@ -6,7 +6,7 @@
 import { Analytics } from '@vercel/analytics/react';
 import ReactGA from 'react-ga4';
 //const inter = Inter({ subsets: ["latin"] });
-//ReactGA.initialize("");
+ReactGA.initialize("G-0YYSXZ22C2");
 
 export default function RootLayout({
   children,
