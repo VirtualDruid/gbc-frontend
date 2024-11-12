@@ -4,7 +4,7 @@ import { VirtuosoGrid, Virtuoso, GridComponents } from "react-virtuoso";
 import * as _ from "lodash";
 import moment from "moment";
 
-import data from './result.json';
+import data from './gbc.json';
 
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -15,10 +15,12 @@ import { Chart, GoogleChartWrapper, ReactGoogleChartEvent } from "react-google-c
 
 import "./style.css";
 const episodes = [
-  "*", "1-3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"
+  "*", "GBC_01", "GBC_02", "GBC_03", "GBC_04", "GBC_05", "GBC_06", "GBC_07", "GBC_08", "GBC_09", "GBC_10", "GBC_11", "GBC_12", "GBC_13"
 ]
 const HOST = 'https://anon-tokyo.com';
 const CDN = 'https://cdn.anon-tokyo.com';
+
+const SITE_THEME_COLOR = "#B61316"
 
 //const API = 'https://api.anon-tokyo.com'
 export default function Home() {
@@ -73,7 +75,7 @@ export default function Home() {
 
   return (
     <>
-      <div style={{ position: "relative", width: "100%", height: "100%", backgroundColor: "rgb(51, 129, 175)" }}>
+      <div style={{ position: "relative", width: "100%", height: "100%", backgroundColor: SITE_THEME_COLOR }}>
 
         <SearchResult
           resultList={resultList}
@@ -195,10 +197,10 @@ function FullImageContainer({
         <Slider
           sx={{
             "& .MuiSlider-thumb": {
-              color: "rgb(51, 129, 175)"
+              color: SITE_THEME_COLOR
             },
             "& .MuiSlider-track": {
-              color: "rgb(51, 129, 175)",
+              color: SITE_THEME_COLOR,
               height: 8
             },
             "& .MuiSlider-rail": {
@@ -206,7 +208,7 @@ function FullImageContainer({
               height: 20
             },
             "& .MuiSlider-active": {
-              color: "rgb(51, 129, 175)"
+              color: SITE_THEME_COLOR
             },
             "& .MuiSlider-mark": {
               color: "black",
@@ -232,7 +234,7 @@ function FullImageContainer({
           <Chip
             style={{ marginLeft: "10dvw" }}
             color="primary"
-            sx={{ "& .MuiChip-colorPrimary": { color: "rgb(51, 129, 175)" } }}
+            sx={{ "& .MuiChip-colorPrimary": { color: SITE_THEME_COLOR } }}
             label={`${currentFrame - frameStartEnd[0]}/${frameStartEnd[1] - frameStartEnd[0]}`} />
 
         </Tooltip>
@@ -382,7 +384,7 @@ function Timeline({
       />
       <div style={{ position: "fixed", bottom: "5dvh", width: "100%", display: "flex", justifyContent: "center", alignContent: "center" }}>
         <IconButton
-          style={{ background: "rgb(51, 129, 175)", color: "white" }}
+          style={{ background: "#B61316", color: "white" }}
           onClick={() => {
             const next = Math.min(Math.max(currentIndex - 2, 0), sliceRef.current.length);
             setNewSegment(sliceRef.current[next]);
@@ -395,7 +397,7 @@ function Timeline({
             const next = Math.min(Math.max(currentIndex + 2, 0), sliceRef.current.length);
             setNewSegment(sliceRef.current[next]);
           }}
-          style={{ background: "rgb(51, 129, 175)", color: "white", marginLeft: "32px" }}
+          style={{ background: "#B61316", color: "white", marginLeft: "32px" }}
         >
           <ArrowForwardIcon />
         </IconButton>
@@ -463,7 +465,7 @@ const ItemWrapper = ({
       background: "rgba(0, 0, 0, 0.3)"
     }}>
       <span style={{ padding: "4px", fontSize: "0.8rem", color: "white", maxLines: "1", textOverflow: "ellipsis" }}>{`${index}`}</span>
-      <span style={{ padding: "4px", fontSize: "0.8rem", color: "rgb(51, 129, 175)", maxLines: "1", textOverflow: "ellipsis" }}>{`${result.episode}`}</span>
+      <span style={{ padding: "4px", fontSize: "0.8rem", color: SITE_THEME_COLOR, maxLines: "1", textOverflow: "ellipsis" }}>{`${result.episode}`}</span>
       <span style={{ padding: "4px", fontSize: "0.8rem", color: "red", maxLines: "1", textOverflow: "ellipsis" }}>{`${result.frame_start} ~ ${result.frame_end}`}</span>
       <span style={{ padding: "4px", fontSize: "0.8rem", color: "white", maxLines: "1", textOverflow: "ellipsis" }}>{`${formatFrameStamp(result.frame_start)}`}</span>
     </div>

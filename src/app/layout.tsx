@@ -6,7 +6,7 @@
 import { Analytics } from '@vercel/analytics/react';
 import ReactGA from 'react-ga4';
 //const inter = Inter({ subsets: ["latin"] });
-ReactGA.initialize("G-RZRPMDK12F");
+//ReactGA.initialize("");
 
 export default function RootLayout({
   children,
@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{backgroundColor:"rgb(51, 129, 175)", height:"100%"}}>
-      <title>MYGO</title>
+    <html lang="en" style={{backgroundColor:"#B61316", height:"100%"}}>
+      <title>GBC</title>
       <body>{children}
         <Analytics/>
       </body>
